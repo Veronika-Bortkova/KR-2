@@ -11,22 +11,56 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
     .then((objDetails) => {
         let divTopBlock = document.getElementById("topBlok");
         for (const Key in objDetails) {
-            if (Key === address) {
+            if (Key === "address") {
+                let divParamAdr = document.createElement("div");
+                divParamAdr.className = "item";
                 let ulAddress = document.createElement("ul");
+                let divTitleAddress = document.createElement("div");
+                divTitleAddress.innerText = "Address:";
+                divTopBlock.append(divTitleAddress);
+                for (const ulAddressKey in objDetails.address) {
+                    if (ulAddressKey === "geo"){
 
+
+
+
+
+                        let ulGeo = document.createElement("ul");
+                        let liLat = document.createElement("li");
+                        let liLng = document.createElement("li");
+                        liLat.innerText = firstСapitalLettere(ulAddressKey)+ ":" + " " + objDetails.address[ulAddressKey]["geo"];
+                    }
+                    let liAdres = document.createElement("li");
+                    liAdres.className = "liAdress";
+                    liAdres.innerText = firstСapitalLettere(ulAddressKey)+ ":" + " " + objDetails.address[ulAddressKey];
+                    ulAddress.append(liAdres);
+                }
+                divParamAdr.append(ulAddress);
+                divTopBlock.append(divParamAdr);
+            } else if(Key === "company"){
+                let divParamComp = document.createElement("div");
+                divParamComp.className = "item";
+                let ulCompany = document.createElement("ul");
+                let divTitleCompany = document.createElement("div");
+                divTitleCompany.innerText = "Company:";
+                divTopBlock.append(divTitleCompany);
+                for (const ulCompanyKey in objDetails.company) {
+                    let liCompany = document.createElement("li");
+                    liCompany.className = "liCompany";
+                    liCompany.innerText = firstСapitalLettere(ulCompanyKey) + ":" + " " + objDetails.company[ulCompanyKey];
+                    ulCompany.append(liCompany);
+                }
+                divParamComp.append(ulCompany);
+                divTopBlock.append(divParamComp);
+            } else {
+                let divParam = document.createElement("div");
+                divParam.className = "item";
+                divParam.innerText = firstСapitalLettere(Key) + ":" + " " + objDetails[Key];
+                divTopBlock.append(divParam);
             }
-            let divParam = document.createElement("div");
-            divParam.className = "item";
-            divParam.innerText = firstСapitalLettere(Key) + ":" + " " + objDetails[Key];
-            divTopBlock.append(divParam);
         }
-
-
-
         console.log(objDetails);
-
-
-    })
+    });
 
 // "id": 3,
 //     "name": "Clementine Bauch",
