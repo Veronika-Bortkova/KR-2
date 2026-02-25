@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 body{
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 400;
     color: #323232;
 }
@@ -12,10 +12,54 @@ body{
     /*background: #d3ffff;*/
 }
 .block{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: #deffe2;
     padding: 20px;
     border-radius: 12px;
     outline: 2px solid #202020;
-    /*align-self: center; !* блок прижимается к верхней границе ячейки *!*/
-    /*justify-self: center !* блок прижимается к левой границе *!*/
+    gap: 10px;
+    padding: 20px 30px;
 }
+.title{
+    font-weight: 700;
+    text-align: center;
+
+}
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #dfdfdf, #ffffff);
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-left: 39%;
+    border: #58715a solid 2px;
+    padding: 5px 5px;
+    color: black;
+    cursor: pointer;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    transform: scale(1);
+    transition: transform 0.5s, border 0.5s, font-weight 0.5s;
+}
+.details:focus {
+    outline: none;
+}
+.details:hover{
+    font-weight: 700;
+    border: #000000 solid 2px;
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+.details:active{
+    transform: scale(0.8);
+    transition: 0.5s;
+}
+
+
+
